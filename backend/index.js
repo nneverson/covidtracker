@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+import  UsersController from './controllers/Users';
+import SurveyController from './controllers/Survey';
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -14,11 +16,10 @@ app.use(
 );
 
 /* START CONTROLLERS HERE */
-// const ProfileControler = require('./controllers/profiles');
-// app.use('/api/profiles', ProfileController);
 
-const UsersController = require('./controllers/Users');
+
 app.use('/api/users', UsersController);
+app.use('/api/', SurveyController);
 
 /* END CONTROLLERS HERE */
 app.get('/test', (req, res) => {

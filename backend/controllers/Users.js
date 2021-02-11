@@ -1,8 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const { createUserToken } = require('../middleware/auth');
 import {getToken, verifyEmployer, verifyUser} from '../middleware/auth'
 //const { route } = require('./lists');
 
@@ -17,7 +15,8 @@ router.post('/signup',  async (req, res) => {
 			 name: user.name,
 			 email: user.email,
 			 token: getToken(user),
-			 msg: "registration successful"
+			 msg: "registration successful",
+			 isEmployer: user.isEmployer
 		 }) 
 	  }else{
 		  res.status(401).send({msg: "invalid email or password"})
@@ -29,13 +28,14 @@ router.post('/signup',  async (req, res) => {
 });
 
 //show all users (employees) 
-router.get('/', verifyEmployer, (req, res, next) => {
+router.get('/', verifyUser, verifyEmployer, (req, res, next) => {
 	User.find({})
 		.then((users) => {
 			res.json(users);
 		})
-		.catch(next);
+		.catch(err => res.send(err));
 });
+
 
 //Sign In
 router.post('/login', async (req, res) => {

@@ -6,6 +6,7 @@ export const getToken = (user) => {
 			_id: user._id,
 			name: user.name,
 			email: user.email,
+		  isEmployer: user.isEmployer,
 		},
 		process.env.JWT_KEY,
 		{ expiresIn: '48h' }
@@ -26,7 +27,7 @@ export const verifyUser = (req, res, next) => {
             return
         })
     }else{
-         res.send({ msg: ' token is not supplid' });
+         res.send({ msg: ' token is not supplied' });
     }
 }
 

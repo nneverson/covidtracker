@@ -1,8 +1,9 @@
 import express from 'express';
 import Survey from '../models/survey';
+import { getToken, verifyEmployer, verifyUser } from '../middleware/auth';
 const router = express.Router();
 
-import { getToken, verifyEmployer, verifyUser } from '../middleware/auth';
+
 
 // add survey created by employee;
 

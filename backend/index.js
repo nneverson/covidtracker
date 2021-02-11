@@ -1,11 +1,14 @@
 const express = require('express');
-const app = express();
-import cors from 'cors';
-import  UsersController from './controllers/Users.js';
-import SurveyController from './controllers/Survey.js';
-import dotenv from 'dotenv'
+const cors = require('cors');
+import  UsersController from './controllers/Users.js'
+import SurveyController from './controllers/Survey.js'
+const dotenv = require('dotenv');
 
+
+const app = express();
 dotenv.config()
+
+
 
 app.use(cors());
 app.use(express.json());
@@ -19,7 +22,7 @@ app.use(
 
 
 app.use('/api/users', UsersController);
-app.use('/api/', SurveyController);
+app.use('/api', SurveyController);
 
 /* END CONTROLLERS HERE */
 app.get('/test', (req, res) => {

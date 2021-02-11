@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
+const jwt = require ('jsonwebtoken');
 
 
-export const getToken = (user) => {
+ const getToken = (user) => {
 	return jwt.sign(
 		{
 			_id: user._id,
@@ -14,7 +14,7 @@ export const getToken = (user) => {
 	);
 };
 
-export const verifyUser = (req, res, next) => {
+ const verifyUser = (req, res, next) => {
   
     const token = req.headers.authorization;
     if(token){
@@ -32,7 +32,7 @@ export const verifyUser = (req, res, next) => {
     }
 }
 
-export const verifyEmployer = (req, res, next) => {
+ const verifyEmployer = (req, res, next) => {
     if(req.user && req.user.isEmployer){
         return next();
     }
@@ -40,3 +40,4 @@ export const verifyEmployer = (req, res, next) => {
 }
 
 // user info, jwt secret, expiry
+module.exports = {getToken, verifyUser, verifyEmployer}

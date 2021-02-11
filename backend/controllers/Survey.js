@@ -1,6 +1,7 @@
-import express from 'express';
-import Survey from '../models/survey';
-import { getToken, verifyEmployer, verifyUser } from '../middleware/auth';
+const express = require('express')
+const Survey = require('../models/survey')
+
+const { getToken, verifyEmployer, verifyUser } = require('../middleware/auth');
 const router = express.Router();
 
 
@@ -36,5 +37,5 @@ router.get('/surveys', verifyUser, verifyEmployer, async (req, res, next) => {
 		console.log(Error);
 	}
 });
+module.exports = router
 
-export default router;

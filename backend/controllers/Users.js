@@ -1,7 +1,11 @@
 const express = require('express');
 const User = require('../models/user');
-import { getToken, verifyEmployer, verifyUser } from '../middleware/auth';
+
+const { getToken, verifyEmployer, verifyUser } = require('../middleware/auth');
 const router = express.Router();
+
+
+
 
 
 
@@ -91,4 +95,5 @@ router.delete('/:id', verifyUser, (req, res, next) => {
 });
 
 
-export default router
+module.exports = router;
+

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node backend/index.js"
+    "start": "nodemon --exec babel-node backend/index.js"
   },
   "keywords": [],
   "author": "",

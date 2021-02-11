@@ -35,7 +35,7 @@ export const verifyEmployer = (req, res, next) => {
     if(req.user && req.user.isEmployer){
         return next();
     }
-    return res.send({msg: "Employer token not valid!"})
+    return res.send({msg: "Employer token is not valid!"})
 }
 
 // user info, jwt secret, expiry

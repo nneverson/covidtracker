@@ -2,7 +2,7 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 import {getToken, verifyEmployer, verifyUser} from '../middleware/auth'
-//const { route } = require('./lists');
+
 
 //POST /api/signup
 router.post('/signup',  async (req, res) => {

@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-import  UsersController from './controllers/Users.js'
-import SurveyController from './controllers/Survey.js'
+const  UsersController = require('./controllers/Users.js')
+const SurveyController = require ('./controllers/Survey.js')
 const dotenv = require('dotenv');
 
 

@@ -1,4 +1,4 @@
-import mongoose  from '../db/connection'
+const mongoose = require ('../db/connection')
 
 const SurveySchema = new mongoose.Schema({
 	vaccination: { type: String, required: true },
@@ -14,4 +14,4 @@ const SurveySchema = new mongoose.Schema({
 
 const Survey = mongoose.model('Survey', SurveySchema);
 
-export default Survey
+module.exports = Survey;

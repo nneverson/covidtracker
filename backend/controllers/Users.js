@@ -4,13 +4,6 @@ const User = require('../models/user');
 const { getToken, verifyEmployer, verifyUser } = require('../middleware/auth');
 const router = express.Router();
 
-
-
-
-
-
-
-
 //POST /api/signup
 router.post('/signup',  async (req, res) => {
 
@@ -96,4 +89,3 @@ router.delete('/:id', verifyUser, (req, res, next) => {
 
 
 module.exports = router;
-
